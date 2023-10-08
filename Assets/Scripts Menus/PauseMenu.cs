@@ -23,7 +23,7 @@ public class PauseMenu : MonoBehaviour
 
             else
             {
-                PauseMenu();
+                Pause();
             }
         }
     }
@@ -31,25 +31,25 @@ public class PauseMenu : MonoBehaviour
     public void Resume ()
     {
         PauseMenuUI.SetActive(false);
-        Timeout.timeScale = 1f;
+        Time.timeScale = 1f;
         GameIsPaused = false;
     }
 
     void Pause ()
     {
         PauseMenuUI.SetActive(true);
-        Timeout.timeScale = 0f;
+        Time.timeScale = 0f;
         GameIsPaused = true;
     }
 
-    public LoadMenu ()
+    public void LoadMenu ()
     {
         SceneManager.LoadScene("Main Menu");
     }
 
-    public void ExitGame ()
+    public void ExitGame()
     {
-        Debug.Log("Exiting Game");
-        Applicaton.Exit();
+        UnityEngine.Debug.Log("Exiting Game");
+        Application.Quit();
     }
 }

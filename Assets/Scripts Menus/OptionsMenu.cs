@@ -12,12 +12,12 @@ public class OptionsMenu : MonoBehaviour
         if (!PlayerPrefs.HasKey("musicVolume"))
         {
             PlayerPrefs.SetFloat("musicVolume", 1);
-            Load();
+            //Load();
         }
 
         else
         {
-            Load
+            //Load();
         }
     }
 
