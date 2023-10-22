@@ -20,12 +20,12 @@ public class CarController : MonoBehaviour
     private float carAccel;
     private float carSteer;
 
-    void Update()
+    void FixedUpdate()
     {
         carAccel = Input.GetAxis("Vertical");
         carSteer = Input.GetAxis("Horizontal");
         
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space)) // handbrake
         {
             RLCollider.brakeTorque = maxBrakeTorque;
             RRCollider.brakeTorque = maxBrakeTorque;
