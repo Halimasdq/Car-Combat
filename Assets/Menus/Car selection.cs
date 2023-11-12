@@ -12,7 +12,12 @@ public class Carselection : MonoBehaviour
 
     void Start()
     {
-
+        int selectedCar = PlayerPrefs.GetInt("SelectedCarID");
+        if (inGamePlayScene == true)
+        {
+            cars[selectedCar].SetActive(true);
+            currentcar = selectedCar;
+        }
     }
 
     void Update()
@@ -47,5 +52,11 @@ public class Carselection : MonoBehaviour
 
         }
 
+    }
+
+    public void Select()
+    {
+        PlayerPrefs.SetInt("SelectedCarID", currentcar);
+        SceneManager.GetActiveScene();
     }
 }
