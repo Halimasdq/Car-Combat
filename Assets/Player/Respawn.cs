@@ -11,13 +11,15 @@ public class Respawn : MonoBehaviour
     private Rigidbody carRigidbody;
     private Transform respawnPoint;
 
+    public bool isOffTrack = false;
+
     void Start()
     {
         carRigidbody = GetComponent<Rigidbody>();
         CreateRespawnPoint();
     }
 
-    void Update()
+    /*void Update()
     {
         // Check if the car is off the track
         if (IsOffTrack())
@@ -25,9 +27,9 @@ public class Respawn : MonoBehaviour
             // Invoke the respawn function after the specified respawn time
             Invoke("PerformRespawn", respawnTime);
         }
-    }
+    }*/
 
-    bool IsOffTrack()
+    /*bool IsOffTrack()
     {
         NavMeshObstacle navMeshObstacle = trackBoundaryGameObject.GetComponent<NavMeshObstacle>();
 
@@ -42,16 +44,15 @@ public class Respawn : MonoBehaviour
             Debug.LogError("NavMeshObstacle not found on the specified GameObject.");
             return false; // Return false to avoid unintended behavior if NavMeshObstacle is not found
         }
-    }
+    }*/
 
-    void PerformRespawn()
+    public void PerformRespawn()
     {
         // Reset the car's position and velocity to the initial state
         carRigidbody.velocity = Vector3.zero;
         carRigidbody.angularVelocity = Vector3.zero;
 
-        // Set the respawn point to the current position of the car
-        respawnPoint.position = transform.position;
+        transform.position = respawnPoint.position;
 
         Debug.Log("Car respawned!");
     }
@@ -60,5 +61,8 @@ public class Respawn : MonoBehaviour
     {
         // Create an empty GameObject as the respawn point
         respawnPoint = new GameObject("RespawnPoint").transform;
+
+        // Set the respawn point to the current position of the car
+        respawnPoint.position = transform.position;
     }
 }
