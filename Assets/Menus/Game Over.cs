@@ -8,7 +8,7 @@ public class GameOver : MonoBehaviour
     public GameObject YouWin;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "UserPlayer")
+        if (other.tag == "Player")
         {
             YouWin.SetActive(true);
             Time.timeScale = 0f;
@@ -17,6 +17,8 @@ public class GameOver : MonoBehaviour
 
     public void Reset()
     {
-        SceneManager.LoadScene("level 1");
+        SceneManager.GetActiveScene();
     }
+
+  
 }

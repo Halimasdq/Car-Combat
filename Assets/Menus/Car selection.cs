@@ -3,60 +3,62 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Carselection : MonoBehaviour
+public class CarSelectionManager : MonoBehaviour
 {
     public GameObject[] cars;
-    public int currentcar;
-    public bool inGamePlayScene;
-
+    public int currentCar;
+    public bool inGameplayScene = false;
 
     void Start()
     {
         int selectedCar = PlayerPrefs.GetInt("SelectedCarID");
-        if (inGamePlayScene == true)
+
+        if (inGameplayScene == true)
         {
             cars[selectedCar].SetActive(true);
-            currentcar = selectedCar;
+            currentCar = selectedCar;
         }
-    }
-
-    void Update()
-    {
 
     }
+
 
     public void Right()
     {
-        if (currentcar < cars.Length - 1)
+        if (currentCar < cars.Length - 1)
         {
-            currentcar += 1;
+            currentCar += 1;
             for (int i = 0; i < cars.Length; i++)
             {
-                cars[i].SetActive(false);
-                cars[currentcar].SetActive(true);
+                if (currentCar < cars.Length)
+                {
+                    cars[i].gameObject.SetActive(false);
+                    cars[currentCar].SetActive(true);
+                }
             }
-
         }
     }
 
-    void Left()
+
+    public void Left()
     {
-        if (currentcar > 0)
+        if (currentCar > 0)
         {
-            currentcar -= 1;
+            currentCar -= 1;
             for (int i = 0; i < cars.Length; i++)
             {
-                cars[i].SetActive(false);
-                cars[currentcar].SetActive(true);
+                if (currentCar < cars.Length)
+                {
+                    cars[i].gameObject.SetActive(false);
+                    cars[currentCar].SetActive(true);
+                }
             }
-
         }
-
     }
 
     public void Select()
     {
-        PlayerPrefs.SetInt("SelectedCarID", currentcar);
-        SceneManager.GetActiveScene();
+        PlayerPrefs.SetInt("SelectedCarID", currentCar);
+        SceneManager.LoadScene(1);
     }
+
 }
