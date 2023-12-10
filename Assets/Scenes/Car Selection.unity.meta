@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/Car Selection.unity.meta
 guid: ea60017946eb913499548c021348a69d
+========
+guid: 8bb89c7efd132fa479753c4a700a359b
+>>>>>>>> Junaid:Assets/NPC/PBR Machine Gun/Shaders/Documentation.pdf.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
