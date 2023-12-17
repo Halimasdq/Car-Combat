@@ -11,12 +11,12 @@ public class CarSelectionManager : MonoBehaviour
 
     void Start()
     {
-        int selectedCar = PlayerPrefs.GetInt("SelectedCarID");
+        PlayerPrefs.SetInt("SelectedCarID", 1);
 
         if (inGameplayScene == true)
         {
-            cars[selectedCar].SetActive(true);
-            currentCar = selectedCar;
+            cars[PlayerPrefs.GetInt("SelectedCarID")].SetActive(true);
+            currentCar = PlayerPrefs.GetInt("SelectedCarID");
         }
 
     }

@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
-    public GameObject YouWin;
+    public GameObject gameOverScreen;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.transform.parent.CompareTag("Player"))
         {
-            YouWin.SetActive(true);
             Time.timeScale = 0f;
+            gameOverScreen.SetActive(true);
         }
     }
 
