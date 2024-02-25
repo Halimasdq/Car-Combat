@@ -7,16 +7,22 @@ public class Respawn : MonoBehaviour
 {
     public float respawnTime = 2f;
     public GameObject trackBoundaryGameObject;
+    private NavMeshObstacle navMeshObstacle;
 
     private Rigidbody carRigidbody;
     private Transform respawnPoint;
 
     public bool isOffTrack = false;
 
+    //@TODO
+    //get all the respawn points in the map
+    // set the current respawn point for the player
+    // player distance - respawn point  = shortest distance -> set as current respawn point
+
     void Start()
     {
         carRigidbody = GetComponent<Rigidbody>();
-        CreateRespawnPoint();
+        navMeshObstacle = trackBoundaryGameObject.GetComponent<NavMeshObstacle>();
     }
 
     /*void Update()
@@ -27,12 +33,10 @@ public class Respawn : MonoBehaviour
             // Invoke the respawn function after the specified respawn time
             Invoke("PerformRespawn", respawnTime);
         }
-    }*/
+    }
 
-    /*bool IsOffTrack()
+    bool IsOffTrack()
     {
-        NavMeshObstacle navMeshObstacle = trackBoundaryGameObject.GetComponent<NavMeshObstacle>();
-
         if (navMeshObstacle != null)
         {
             // Check if the car's position is outside the obstacle's bounds
@@ -46,6 +50,16 @@ public class Respawn : MonoBehaviour
         }
     }*/
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Respawn"))
+        {
+            respawnPoint = other.transform;
+        }
+
+        Debug.Log("Respawn Point Added");
+    }
+
     public void PerformRespawn()
     {
         // Reset the car's position and velocity to the initial state
@@ -55,14 +69,5 @@ public class Respawn : MonoBehaviour
         transform.position = respawnPoint.position;
 
         Debug.Log("Car respawned!");
-    }
-
-    void CreateRespawnPoint()
-    {
-        // Create an empty GameObject as the respawn point
-        respawnPoint = new GameObject("RespawnPoint").transform;
-
-        // Set the respawn point to the current position of the car
-        respawnPoint.position = transform.position;
     }
 }
