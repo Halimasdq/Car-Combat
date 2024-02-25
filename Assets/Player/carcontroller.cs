@@ -24,13 +24,15 @@ public class CarController : MonoBehaviour
     {
         carAccel = Input.GetAxis("Vertical");
         carSteer = Input.GetAxis("Horizontal");
-        
+
         if (Input.GetKey(KeyCode.Space)) // handbrake
         {
-            RLCollider.brakeTorque = maxBrakeTorque;
-            RRCollider.brakeTorque = maxBrakeTorque;
-            FLCollider.brakeTorque = maxBrakeTorque;
-            FRCollider.brakeTorque = maxBrakeTorque;
+            float handbrakeTorque = maxBrakeTorque;
+
+            RLCollider.brakeTorque = handbrakeTorque;
+            RRCollider.brakeTorque = handbrakeTorque;
+            FLCollider.brakeTorque = handbrakeTorque;
+            FRCollider.brakeTorque = handbrakeTorque;
 
             RLCollider.motorTorque = 0f;
             RRCollider.motorTorque = 0f;
@@ -42,20 +44,20 @@ public class CarController : MonoBehaviour
             FLCollider.brakeTorque = 0f;
             FRCollider.brakeTorque = 0f;
 
+            // Adjusted for sharper and smoother turning
+            float turnFactor = 2f; // Adjust this value to control turning sensitivity
+            FLCollider.steerAngle = carSteer * maxSteerAngle * turnFactor;
+            FRCollider.steerAngle = carSteer * maxSteerAngle * turnFactor;
+
             RLCollider.motorTorque = carAccel * maxTorque;
             RRCollider.motorTorque = carAccel * maxTorque;
         }
 
-        FLCollider.steerAngle = carSteer * maxSteerAngle;
-        FRCollider.steerAngle = carSteer * maxSteerAngle;
-
-        // Check if a key (e.g., "F") is pressed to throw a bomb.
         if (Input.GetKeyDown(KeyCode.F))
         {
             ThrowBomb();
         }
     }
-
     void ThrowBomb()
     {
         GameObject bomb = Instantiate(bombPrefab, throwPoint.position, throwPoint.rotation);

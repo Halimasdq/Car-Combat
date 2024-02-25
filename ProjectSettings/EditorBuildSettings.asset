@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
-    guid: d16a1cfdb4be678498e9a15b5c4d8bed
-  - enabled: 1
     path: Assets/Scenes/level 1.unity
     guid: ad39357c7c5585a4f9a5b925866865b1
   - enabled: 1
-    path: Assets/Scenes/level 2.unity
+    path: Assets/NPC/Azerilo/Extra Race Track/scene1-night.unity
     guid: 19333f7b4eb3259429d8674904f1a3b5
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: d16a1cfdb4be678498e9a15b5c4d8bed
   m_configObjects: {}
