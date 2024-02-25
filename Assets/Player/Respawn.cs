@@ -1,68 +1,55 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class Respawn : MonoBehaviour
 {
-    public float respawnTime = 2f;
-    public GameObject trackBoundaryGameObject;
+    // Place holder for the spawn point
+    public Transform respawnPoint;
 
-    private Rigidbody carRigidbody;
-    private Transform respawnPoint;
+    // Store the position of the car when it hits the outer surface
+    private Vector3 lastCollisionPosition;
 
-    public bool isOffTrack = false;
-
+    // Use this for initialization
     void Start()
     {
-        carRigidbody = GetComponent<Rigidbody>();
-        CreateRespawnPoint();
+
     }
 
-    /*void Update()
+    // Update is called once per frame
+    void Update()
     {
-        // Check if the car is off the track
-        if (IsOffTrack())
-        {
-            // Invoke the respawn function after the specified respawn time
-            Invoke("PerformRespawn", respawnTime);
-        }
-    }*/
 
-    /*bool IsOffTrack()
-    {
-        NavMeshObstacle navMeshObstacle = trackBoundaryGameObject.GetComponent<NavMeshObstacle>();
-
-        if (navMeshObstacle != null)
-        {
-            // Check if the car's position is outside the obstacle's bounds
-            Vector3 closestPoint = navMeshObstacle.transform.InverseTransformPoint(transform.position);
-            return !navMeshObstacle.enabled || navMeshObstacle.size.magnitude < Mathf.Abs(closestPoint.y);
-        }
-        else
-        {
-            Debug.LogError("NavMeshObstacle not found on the specified GameObject.");
-            return false; // Return false to avoid unintended behavior if NavMeshObstacle is not found
-        }
-    }*/
-
-    public void PerformRespawn()
-    {
-        // Reset the car's position and velocity to the initial state
-        carRigidbody.velocity = Vector3.zero;
-        carRigidbody.angularVelocity = Vector3.zero;
-
-        transform.position = respawnPoint.position;
-
-        Debug.Log("Car respawned!");
     }
 
-    void CreateRespawnPoint()
+    //This fires off when the car hits the outer surface
+    void OnCollisionEnter(Collision col)
     {
-        // Create an empty GameObject as the respawn point
-        respawnPoint = new GameObject("RespawnPoint").transform;
+        if (col.gameObject.CompareTag("OutOfBounds"))
+        {
+            // Store the position of the car
+            lastCollisionPosition = col.transform.position;
 
-        // Set the respawn point to the current position of the car
-        respawnPoint.position = transform.position;
+            // Respawn the car
+            col.transform.position = respawnPoint.position;
+        }
+    }
+
+    //This fires off when the car hits the outer surface
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.CompareTag("OutOfBounds"))
+        {
+            // Store the position of the car
+            lastCollisionPosition = col.transform.position;
+
+            // Respawn the car
+            col.transform.position = respawnPoint.position;
+        }
+    }
+
+    //This fires off when the car is stuck on the boundary
+    public void PerformRespawn(Vector3 position)
+    {
+        // Move the car to the stored position
+        transform.position = position;
     }
 }
