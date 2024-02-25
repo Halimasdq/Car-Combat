@@ -1,55 +1,104 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Respawn : MonoBehaviour
 {
-    // Place holder for the spawn point
-    public Transform respawnPoint;
+    public float respawnTime = 2f;
+    private List<NavMeshObstacle> navMeshObstacles = new List<NavMeshObstacle>();
 
-    // Store the position of the car when it hits the outer surface
-    private Vector3 lastCollisionPosition;
+    private Rigidbody carRigidbody;
+    private Transform respawnPoint;
 
-    // Use this for initialization
+    //public bool isOffTrack = false;
+
     void Start()
     {
+        carRigidbody = GetComponent<Rigidbody>();
+
+        // Find all objects with NavMeshObstacle components in the scene
+        NavMeshObstacle[] obstacles = FindObjectsOfType<NavMeshObstacle>();
+
+        // Add all found NavMeshObstacle components to the list
+        foreach (NavMeshObstacle obstacle in obstacles)
+        {
+            navMeshObstacles.Add(obstacle);
+        }
 
     }
 
-    // Update is called once per frame
     void Update()
     {
-
-    }
-
-    //This fires off when the car hits the outer surface
-    void OnCollisionEnter(Collision col)
-    {
-        if (col.gameObject.CompareTag("OutOfBounds"))
+        // Check if the car is off the track
+        if (IsOffTrack())
         {
-            // Store the position of the car
-            lastCollisionPosition = col.transform.position;
-
-            // Respawn the car
-            col.transform.position = respawnPoint.position;
+            // Invoke the respawn function after the specified respawn time
+            Invoke("PerformRespawn", respawnTime);
         }
     }
 
-    //This fires off when the car hits the outer surface
-    void OnTriggerEnter(Collider col)
+    NavMeshObstacle FindClosestObstacleToPlayer()
     {
-        if (col.gameObject.CompareTag("OutOfBounds"))
+        if (navMeshObstacles.Count == 0 || transform == null)
         {
-            // Store the position of the car
-            lastCollisionPosition = col.transform.position;
+            return null;
+        }
 
-            // Respawn the car
-            col.transform.position = respawnPoint.position;
+        NavMeshObstacle closestObstacle = navMeshObstacles[0];
+        float closestDistance = Vector3.Distance(navMeshObstacles[0].transform.position, transform.position);
+
+        // Iterate through all obstacles to find the closest one to the player
+        foreach (NavMeshObstacle obstacle in navMeshObstacles)
+        {
+            float distance = Vector3.Distance(obstacle.transform.position, transform.position);
+            if (distance < closestDistance)
+            {
+                closestObstacle = obstacle;
+                closestDistance = distance;
+            }
+        }
+
+        return closestObstacle;
+    }
+
+    bool IsOffTrack()
+    {
+
+        NavMeshObstacle closestObstacle = FindClosestObstacleToPlayer();
+
+        if(closestObstacle != null)
+        {
+            /* // Check if the car's position is outside the obstacle's bounds
+             Vector3 closestPoint = closestObstacle.transform.InverseTransformPoint(transform.position);
+             return !closestObstacle.enabled || closestObstacle.size.magnitude < Mathf.Abs(closestPoint.y);*/
+
+            return false;
+        }  
+        else
+        {
+            Debug.LogError("NavMeshObstacle not found on the specified GameObject.");
+            return false; // Return false to avoid unintended behavior if NavMeshObstacle is not found
         }
     }
 
-    //This fires off when the car is stuck on the boundary
-    public void PerformRespawn(Vector3 position)
+    private void OnTriggerEnter(Collider other)
     {
-        // Move the car to the stored position
-        transform.position = position;
+        if(other.CompareTag("Respawn"))
+        {
+            respawnPoint = other.transform;
+        }
+
+        Debug.Log("Respawn Point Added");
+    }
+
+    public void PerformRespawn()
+    {
+        // Reset the car's position and velocity to the initial state
+        carRigidbody.velocity = Vector3.zero;
+        carRigidbody.angularVelocity = Vector3.zero;
+
+        transform.position = respawnPoint.position;
+
+        Debug.Log("Car respawned!");
     }
 }
