@@ -10,7 +10,7 @@ public class Respawn : MonoBehaviour
     private Rigidbody carRigidbody;
     private Transform respawnPoint;
 
-    public bool isOffTrack = false;
+    //public bool isOffTrack = false;
 
     void Start()
     {
