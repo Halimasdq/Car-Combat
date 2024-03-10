@@ -42,6 +42,9 @@ public class CarSelection : MonoBehaviour
 
     public void Select()
     {
+        // Debug statement to check if the method is called
+       // Debug.Log("Select() method called.");
+
         PlayerPrefs.SetInt("SelectedCarID", currentCar);
         SceneManager.LoadScene(1);
     }

@@ -176,7 +176,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &5615303
 AudioListener:
   m_ObjectHideFlags: 0
@@ -35858,6 +35858,10 @@ PrefabInstance:
     - target: {fileID: 1332896982454310, guid: dd6c87348fd18db4aac018c1d787235a, type: 3}
       propertyPath: m_Name
       value: NPC_SportCar
+      objectReference: {fileID: 0}
+    - target: {fileID: 1332896982454310, guid: dd6c87348fd18db4aac018c1d787235a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4289291022717028, guid: dd6c87348fd18db4aac018c1d787235a, type: 3}
       propertyPath: m_LocalPosition.x
