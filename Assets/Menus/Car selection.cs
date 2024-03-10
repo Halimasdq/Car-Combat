@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CarSelectionManager : MonoBehaviour
+public class CarSelection : MonoBehaviour
 {
     public GameObject[] cars;
     public int currentCar;
@@ -13,52 +13,41 @@ public class CarSelectionManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("SelectedCarID", 1);
 
-        if (inGameplayScene == true)
+        if (inGameplayScene)
         {
-            cars[PlayerPrefs.GetInt("SelectedCarID")].SetActive(true);
             currentCar = PlayerPrefs.GetInt("SelectedCarID");
+            cars[currentCar].SetActive(true);
         }
-
     }
-
 
     public void Right()
     {
         if (currentCar < cars.Length - 1)
         {
-            currentCar += 1;
-            for (int i = 0; i < cars.Length; i++)
-            {
-                if (currentCar < cars.Length)
-                {
-                    cars[i].gameObject.SetActive(false);
-                    cars[currentCar].SetActive(true);
-                }
-            }
+            cars[currentCar].SetActive(false);
+            currentCar++;
+            cars[currentCar].SetActive(true);
         }
     }
-
 
     public void Left()
     {
         if (currentCar > 0)
         {
-            currentCar -= 1;
-            for (int i = 0; i < cars.Length; i++)
-            {
-                if (currentCar < cars.Length)
-                {
-                    cars[i].gameObject.SetActive(false);
-                    cars[currentCar].SetActive(true);
-                }
-            }
+            cars[currentCar].SetActive(false);
+            currentCar--;
+            cars[currentCar].SetActive(true);
         }
     }
 
     public void Select()
     {
+        // Debug statement to check if the method is called
+       // Debug.Log("Select() method called.");
+
         PlayerPrefs.SetInt("SelectedCarID", currentCar);
         SceneManager.LoadScene(1);
     }
-
 }
+
+

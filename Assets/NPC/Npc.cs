@@ -14,7 +14,8 @@ public class npc : MonoBehaviour
 
         // set random speed of the npc car
         agent.speed = Random.Range(3.5f, 10);
-        Debug.Log(agent.name + " " + agent.speed);
+
+        //Debug.Log(agent.name + " " + agent.speed);
 
         // set random handling of the npc car
 
