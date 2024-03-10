@@ -76,7 +76,7 @@ public class Respawn : MonoBehaviour
         }  
         else
         {
-            Debug.LogError("NavMeshObstacle not found on the specified GameObject.");
+           // Debug.LogError("NavMeshObstacle not found on the specified GameObject.");
             return false; // Return false to avoid unintended behavior if NavMeshObstacle is not found
         }
     }

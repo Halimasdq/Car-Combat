@@ -11489,7 +11489,7 @@ MonoBehaviour:
   cars:
   - {fileID: 1835871849}
   - {fileID: 3505747060534361132}
-  currentCar: 1
+  currentCar: 2
   inGameplayScene: 1
 --- !u!1 &1719422576
 GameObject:
