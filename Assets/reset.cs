@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Reset : MonoBehaviour
+public class Restart : MonoBehaviour
 {
     private Vector3 initialPosition;
     private Quaternion initialRotation;
     private Rigidbody carRigidbody;
-    private List<Vector3> positionsHistory = new List<Vector3>(); // Store positions history
 
     void Start()
     {
@@ -21,45 +20,24 @@ public class Reset : MonoBehaviour
 
     void Update()
     {
-        // Check if you want to reset the car (for example, if a certain key is pressed)
+        // Check if you want to restart the car (for example, if a certain key is pressed)
         if (Input.GetKeyDown(KeyCode.R))
         {
-            StartCoroutine(ResetCar());
-        }
-
-        // Store the car's position at regular intervals
-        if (Time.frameCount % 60 == 0) // Store position every 60 frames (1 second at 60fps)
-        {
-            StorePosition();
+            StartCoroutine(RestartCar());
         }
     }
 
-    void StorePosition()
+    IEnumerator RestartCar()
     {
-        positionsHistory.Add(transform.position);
-    }
-
-    IEnumerator ResetCar()
-    {
-        yield return new WaitForSeconds(5f); // Wait for 5 seconds
+        // Wait for 5 seconds
+        yield return new WaitForSeconds(5f);
 
         // Stop the car's movement
         carRigidbody.velocity = Vector3.zero;
         carRigidbody.angularVelocity = Vector3.zero;
 
-        // Retrieve the position from 5 seconds ago
-        if (positionsHistory.Count >= 5)
-        {
-            Vector3 previousPosition = positionsHistory[positionsHistory.Count - 5];
-            transform.position = previousPosition;
-        }
-        else
-        {
-            // If there's not enough history, reset to initial position
-            transform.position = initialPosition;
-        }
+        // Move the car back to its initial position and rotation
+        transform.position = initialPosition;
+        transform.rotation = initialRotation;
     }
-}
-
-
 }
