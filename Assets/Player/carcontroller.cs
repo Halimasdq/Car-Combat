@@ -75,3 +75,5 @@ public class CarController : MonoBehaviour
         bombRigidbody.AddForce(throwPoint.forward * throwForce, ForceMode.Impulse);
     }
 }
+
+
