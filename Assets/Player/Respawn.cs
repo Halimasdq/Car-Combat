@@ -1,9 +1,8 @@
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class Respawn : MonoBehaviour
 {
+<<<<<<< Updated upstream
     public float respawnTime = 2f;
     private List<NavMeshObstacle> navMeshObstacles = new List<NavMeshObstacle>();
 
@@ -80,25 +79,30 @@ public class Respawn : MonoBehaviour
             return false; // Return false to avoid unintended behavior if NavMeshObstacle is not found
         }
     }
+=======
+    public Transform respawnPoint; // The checkpoint to respawn the car at
+    public string roadObjectName = "Road1"; // The name of the road object
+>>>>>>> Stashed changes
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Respawn"))
+        // Check if the car has collided with the road object
+        if (other.gameObject.name == Road1)
         {
-            respawnPoint = other.transform;
+            Debug.Log("Car is on the road.");
         }
-
-        Debug.Log("Respawn Point Added");
-    }
-
-    public void PerformRespawn()
-    {
-        // Reset the car's position and velocity to the initial state
-        carRigidbody.velocity = Vector3.zero;
-        carRigidbody.angularVelocity = Vector3.zero;
-
-        transform.position = respawnPoint.position;
-
-        Debug.Log("Car respawned!");
+        else
+        {
+            // If the car goes off-road, respawn it at the checkpoint
+            if (respawnPoint != null)
+            {
+                other.transform.position = respawnPoint.position;
+                Debug.Log("Car respawned at checkpoint.");
+            }
+            else
+            {
+                Debug.LogWarning("Respawn point not set!");
+            }
+        }
     }
 }

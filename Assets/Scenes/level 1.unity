@@ -37,8 +37,13 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
+<<<<<<< Updated upstream
   m_Sun: {fileID: 1034484023}
   m_IndirectSpecularColor: {r: 0.03614529, g: 0.050296597, b: 0.08971595, a: 1}
+=======
+  m_Sun: {fileID: 705507994}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+>>>>>>> Stashed changes
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1900,10 +1905,63 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1694738337}
     m_Modifications:
+<<<<<<< Updated upstream
     - target: {fileID: 100000, guid: 9c29525e79bd5f942b5e6f8a54a3e695, type: 3}
+=======
+    - target: {fileID: 1774684984030126932, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
+      propertyPath: m_Depth
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1774684984030126932, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1774684984030126932, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
+      propertyPath: orthographic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1774684984030126932, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
+      propertyPath: m_FOVAxisMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1774684984030126932, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
+      propertyPath: far clip plane
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1774684984030126932, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
+      propertyPath: m_TargetDisplay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1774684984030126932, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
+      propertyPath: near clip plane
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1774684984030126932, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1774684984030126932, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1774684984030126932, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1774684984030126932, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1774684984030126932, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
+      propertyPath: m_AllowDynamicResolution
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3505747061598935236, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
+>>>>>>> Stashed changes
       propertyPath: m_Name
       value: rocks-mountain-1 (6)
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
     - target: {fileID: 400000, guid: 9c29525e79bd5f942b5e6f8a54a3e695, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -1921,6 +1979,25 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9c29525e79bd5f942b5e6f8a54a3e695, type: 3}
+=======
+    - target: {fileID: 3602041076156551704, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
+      propertyPath: maxTorque
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602041076156551704, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
+      propertyPath: maxSteerAngle
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602041076156551704, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
+      propertyPath: maxBrakeTorque
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602041076156551704, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
+      propertyPath: steerLerpSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318172266845766270, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
+>>>>>>> Stashed changes
       propertyPath: m_LocalPosition.x
       value: -144.1
       objectReference: {fileID: 0}
@@ -1947,6 +2024,46 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 9c29525e79bd5f942b5e6f8a54a3e695, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.64569104
+      objectReference: {fileID: 0}
+    - target: {fileID: 7754585906829608189, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7754585906829608189, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 7754585906829608189, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7754585906829608189, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9955976
+      objectReference: {fileID: 0}
+    - target: {fileID: 7754585906829608189, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.05191222
+      objectReference: {fileID: 0}
+    - target: {fileID: 7754585906829608189, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.07793643
+      objectReference: {fileID: 0}
+    - target: {fileID: 7754585906829608189, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.0040637474
+      objectReference: {fileID: 0}
+    - target: {fileID: 7754585906829608189, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 5.897
+      objectReference: {fileID: 0}
+    - target: {fileID: 7754585906829608189, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7754585906829608189, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0.932
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

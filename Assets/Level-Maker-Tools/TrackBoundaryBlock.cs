@@ -1,31 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class TrackBoundaryBlock : MonoBehaviour
+public class Respawn : MonoBehaviour
 {
+    public Transform respawnPoint; // The checkpoint to respawn the car at
+    public string roadObjectName = "Road1"; // The name of the road object
 
-    float collisionTimer = 0;
-    private void OnCollisionStay(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("hit!!");
-
-        if (collision.transform.CompareTag("Player"))
+        // Check if the car has collided with the road object
+        if (other.CompareTag(roadObjectName))
         {
-            collisionTimer += Time.deltaTime;
-            Debug.Log($"collision Timer {collisionTimer}");
-            // if it is in the collider for longer than 10 seconds
-            if
-                (collisionTimer > 10)
+            Debug.Log("Car is on the road.");
+        }
+        else
+        {
+            // If the car goes off-road, respawn it at the checkpoint
+            if (respawnPoint != null)
             {
-                // car is stuck on the boundary
-                // respawn
-                collision.transform.GetComponent<Respawn>().PerformRespawn();
-
-                // reset timer
-                collisionTimer = 0;
+                other.transform.position = respawnPoint.position;
+                Debug.Log("Car respawned at checkpoint.");
+            }
+            else
+            {
+                Debug.LogWarning("Respawn point not set!");
             }
         }
     }
-
 }
