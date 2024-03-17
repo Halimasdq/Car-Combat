@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1034484023}
-  m_IndirectSpecularColor: {r: 0.036144946, g: 0.05029749, b: 0.08860371, a: 1}
+  m_IndirectSpecularColor: {r: 0.03614529, g: 0.050296597, b: 0.08971595, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1140,6 +1140,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Loading: {fileID: 1987148123}
   loader: {fileID: 910031724}
+  characters:
+  - {fileID: 737421282}
+  - {fileID: 1536997390485366, guid: f8b49f9d229541d43b30476c740c2477, type: 3}
+  startingPosition: {fileID: 597408358}
 --- !u!4 &36860976
 Transform:
   m_ObjectHideFlags: 0
@@ -27268,37 +27272,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 362296485930991818, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 1362635254}
-    - target: {fileID: 362296485930991818, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
-      propertyPath: offset.x
-      value: -1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 362296485930991818, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
-      propertyPath: offset.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 362296485930991818, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
-      propertyPath: offset.z
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 362296485930991818, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
-      propertyPath: smoothSpeed
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3505747061598935236, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
       propertyPath: m_Name
       value: USER PLAYER
       objectReference: {fileID: 0}
-    - target: {fileID: 3602041076156551704, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
-      propertyPath: maxSteerAngle
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3602041076156551704, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
-      propertyPath: steerLerpSpeed
-      value: 8
+    - target: {fileID: 3505747061598935236, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4318172266845766270, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27340,12 +27320,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 0}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
+--- !u!1 &737421282 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3505747061598935236, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
+  m_PrefabInstance: {fileID: 737421281}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &740278642
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42764,17 +42748,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3602041076156551704, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
   m_PrefabInstance: {fileID: 737421281}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 737421282}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6881cea8133393b46963443672cc3e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1362635254 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4318172266845766270, guid: 07b4fc46794dbef4e807dff5bbdab476, type: 3}
-  m_PrefabInstance: {fileID: 737421281}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1363832780
 GameObject:
   m_ObjectHideFlags: 0
