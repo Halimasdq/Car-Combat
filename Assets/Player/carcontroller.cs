@@ -42,7 +42,17 @@ public class CarController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            ThrowBomb();
+            ThrowBomb(Vector3.forward); // Throw straight
+        }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            ThrowBomb(Vector3.right); // Throw to the right
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            ThrowBomb(Vector3.left); // Throw to the left
         }
     }
 
@@ -68,12 +78,10 @@ public class CarController : MonoBehaviour
         FRCollider.steerAngle = currentSteerAngle;
     }
 
-    void ThrowBomb()
+    void ThrowBomb(Vector3 direction)
     {
         GameObject bomb = Instantiate(bombPrefab, throwPoint.position, throwPoint.rotation);
         Rigidbody bombRigidbody = bomb.GetComponent<Rigidbody>();
-        bombRigidbody.AddForce(throwPoint.forward * throwForce, ForceMode.Impulse);
+        bombRigidbody.AddForce(direction * throwForce, ForceMode.Impulse);
     }
 }
-
-
