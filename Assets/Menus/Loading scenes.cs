@@ -12,7 +12,7 @@ public class Loadingscenes : MonoBehaviour
     public GameObject[] characters; // 0 , 1
     public Transform startingPosition;
 
-    void Awake()
+   /* void Awake()
     {
         // Check if PlayerPrefs has the selected main character
         int mainCharacter = PlayerPrefs.GetInt("SelectedCarID");
@@ -21,7 +21,7 @@ public class Loadingscenes : MonoBehaviour
 
         // Find the selected main character in the array and spawn it
         Instantiate(characters[mainCharacter - 1], startingPosition.position, startingPosition.rotation);
-    }
+    }*/
 
     public void LoadLevel (int sceneIndex)
     {

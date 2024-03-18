@@ -92,7 +92,7 @@ public class CarController : MonoBehaviour
         bombRigidbody.AddForce(throwPoint.forward * throwForce, ForceMode.Impulse);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    /*private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.CompareTag("Bullet"))
         {
@@ -100,7 +100,7 @@ public class CarController : MonoBehaviour
             // event call to take damage
             //HealthBar.DamageTaken(10);
         }
-    }
+    }*/
 }
 
 
