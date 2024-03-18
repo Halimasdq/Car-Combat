@@ -478,9 +478,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b37c1f4a4b61a3e44af2730731b690e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  offset: {x: 0, y: 3, z: -5}
-  smoothSpeed: 5
+  target: {fileID: 4318172266845766270}
+  offset: {x: -1.5, y: 3, z: 5}
+  smoothSpeed: 1
 --- !u!1 &2637848848801422496
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,8 +723,8 @@ MonoBehaviour:
   FLCollider: {fileID: 6767181191063114677}
   maxTorque: 1000
   maxBrakeTorque: 2500
-  maxSteerAngle: 60
-  steerLerpSpeed: 5
+  maxSteerAngle: 20
+  steerLerpSpeed: 8
   bombPrefab: {fileID: 7493155728441761240, guid: c07c94e91b6537e4581cf92dc523a50e, type: 3}
   throwPoint: {fileID: 4806665733058767439}
   throwForce: 50

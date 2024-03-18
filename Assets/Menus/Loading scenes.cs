@@ -8,7 +8,21 @@ public class Loadingscenes : MonoBehaviour
 {
     public GameObject Loading;
     public Slider loader;
-    
+
+    public GameObject[] characters; // 0 , 1
+    public Transform startingPosition;
+
+    void Awake()
+    {
+        // Check if PlayerPrefs has the selected main character
+        int mainCharacter = PlayerPrefs.GetInt("SelectedCarID");
+        // 1 - black car
+        // 2 - white car
+
+        // Find the selected main character in the array and spawn it
+        Instantiate(characters[mainCharacter - 1], startingPosition.position, startingPosition.rotation);
+    }
+
     public void LoadLevel (int sceneIndex)
     {
         StartCoroutine (LoadAsynchronously  (sceneIndex));

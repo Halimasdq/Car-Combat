@@ -20,5 +20,11 @@ public class GameOver : MonoBehaviour
         SceneManager.GetActiveScene();
     }
 
-  
+    public void LoadMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Menu");
+    }
+
+
 }

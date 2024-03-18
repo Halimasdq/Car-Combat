@@ -1412,6 +1412,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4289291022717028}
   - component: {fileID: 6238117934470085374}
+  - component: {fileID: 2368057153743415454}
+  - component: {fileID: 6059416464598031232}
   m_Layer: 0
   m_Name: NPC_SportCar
   m_TagString: Untagged
@@ -1453,6 +1455,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadStart: {fileID: 0}
   roadEnd: {fileID: 0}
+--- !u!135 &2368057153743415454
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332896982454310}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 7.8
+  m_Center: {x: 0, y: 0, z: 7.11}
+--- !u!114 &6059416464598031232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332896982454310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d1ebb7599fc8184e8f41749d2143f37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombPrefab: {fileID: 7493155728441761240, guid: b22050dde2f11cc41bcd4b08bce3d7f8, type: 3}
+  throwPoint: {fileID: 0}
+  throwForce: 10
+  fireRate: 1
 --- !u!1 &1351497917872934
 GameObject:
   m_ObjectHideFlags: 0

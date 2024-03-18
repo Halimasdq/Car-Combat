@@ -26,10 +26,10 @@ public class HealthBar : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Backspace))
+        /*if (Input.GetKeyDown(KeyCode.Backspace))
         {
             TakeDamage(10);
-        }
+        }*/
 
         if (healthSlider != null && easeHealthSlider != null) // Add null check here
         {

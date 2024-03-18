@@ -25,9 +25,22 @@ public class CarController : MonoBehaviour
 
     private float currentSteerAngle = 0f;
 
+    public float speed;
+
+    private HealthBar healthBar;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        // subscribe to the event
+        //HealthBar.OnDamageTaken += ;
+    }
+
+    private void OnDestroy()
+    {
+        //unsubscribe to the event
+        //HealthBar.OnDamageTaken -= ;
     }
 
     void FixedUpdate()
@@ -59,6 +72,10 @@ public class CarController : MonoBehaviour
     void ApplyTorque(float accelInput, float brakeTorque)
     {
         float torque = accelInput * maxTorque;
+
+        // use for speedometer
+        speed = torque;
+
         RLCollider.brakeTorque = brakeTorque;
         RRCollider.brakeTorque = brakeTorque;
         FLCollider.brakeTorque = brakeTorque;
@@ -83,5 +100,15 @@ public class CarController : MonoBehaviour
         GameObject bomb = Instantiate(bombPrefab, throwPoint.position, throwPoint.rotation);
         Rigidbody bombRigidbody = bomb.GetComponent<Rigidbody>();
         bombRigidbody.AddForce(direction * throwForce, ForceMode.Impulse);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Bullet"))
+        {
+            // take damage
+            // event call to take damage
+            //HealthBar.DamageTaken(10);
+        }
     }
 }
